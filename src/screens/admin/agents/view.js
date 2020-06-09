@@ -75,25 +75,21 @@ const ViewAgentPage = () => {
       flexDirection="column"
     >
       <Pane clearfix>
-        <Pane
-          width="20%"
-          height={180}
-          elevation={1}
-          margin={14}
-          display="flex"
-          float="left"
-        >
+        <Pane width="20%" height={180} margin={14} float="left">
           <AgentPicture
             fieldData={fieldData}
             isShown={isAgentPictureModal}
             setShowState={setShowAgentPicture}
           />
           {/* {readImage(data.profileimg)} */}
-          {
-            //
-            data.profileimg ? (
-              <img alt="" src={data.profileimg} />
-            ) : (
+          {data.profileimg ? (
+            <div>
+              <img
+                width="220px"
+                height="180px"
+                alt=""
+                src={`http://localhost:3000/agentimages/${data.profileimg}.png`}
+              />
               <Button
                 marginBottom={16}
                 iconBefore="user"
@@ -107,10 +103,21 @@ const ViewAgentPage = () => {
                   return setAgentPictureModal(true);
                 }}
               >
-                Add Agent Image
+                Edit Agent Image
               </Button>
-            )
-          }
+            </div>
+          ) : (
+            <Button
+              marginBottom={16}
+              iconBefore="user"
+              onClick={() => {
+                setField("profileimg", "Full name", data.profileimg, agentUid);
+                return setAgentPictureModal(true);
+              }}
+            >
+              Add Agent Image
+            </Button>
+          )}
         </Pane>
         <EditAgent
           fieldData={fieldData}
@@ -167,7 +174,7 @@ const ViewAgentPage = () => {
       </Pane>
 
       <Pane clearfix>
-        <Pane width="20%" height={180} margin={14} display="flex" float="left">
+        <Pane width="20%" height={180} margin={30} display="flex" float="left">
           <Menu
             css={css`
               width: 300px;
@@ -183,7 +190,6 @@ const ViewAgentPage = () => {
               // selected={}
               // onChange={}
             />
-            <Menu.Divider />
           </Menu>
         </Pane>
         <Pane width="68%" margin={14} float="left">
