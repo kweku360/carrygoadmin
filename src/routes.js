@@ -5,6 +5,8 @@ import Dashboard from "./screens/admin/dashboard";
 import AddAgent from "./screens/admin/agents/add";
 import ListAgent from "./screens/admin/agents/list";
 import ViewAgent from "./screens/admin/agents/view";
+import ListRequests from "./screens/admin/requests/list";
+import ViewRequests from "./screens/admin/requests/view";
 
 const Routes = () => {
   return (
@@ -14,6 +16,8 @@ const Routes = () => {
       <AddAgent path="/agent/add" />
       <ListAgent path="/agent/list" />
       <ViewAgent path="/agent/view/:id" />
+      <ListRequests path="/request/list" />
+      <ViewRequests path="/request/view/:id" />
     </Router>
   );
 };
