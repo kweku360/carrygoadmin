@@ -46,5 +46,5 @@ const ListAgentPage = () => {
   );
 };
 
-const ListAgent = LayoutMaster(ListAgentPage);
+const ListAgent = LayoutMaster(ListAgentPage, { title: "All Agents" });
 export default ListAgent;

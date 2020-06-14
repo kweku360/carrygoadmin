@@ -1,9 +1,14 @@
 import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import { Pane, Heading, Text, NotificationsIcon, Avatar } from "evergreen-ui";
+import { Pane, Heading, NotificationsIcon, Avatar, Button } from "evergreen-ui";
+import { useAuth } from "../../../context/authcontext";
 
-const Topbar = () => {
+const Topbar = ({ title }) => {
+  const { setAuthToken } = useAuth();
+  const logout = async () => {
+    setAuthToken();
+  };
   return (
     <Pane
       display="flex"
@@ -12,19 +17,23 @@ const Topbar = () => {
       margin={"30px"}
       borderRadius={3}
     >
-      <Pane flex={1} alignItems="center" display="flex"></Pane>
+      <Pane flex={1} alignItems="left" display="flex">
+        <Heading size={700}>{title || ""}</Heading>
+      </Pane>
       <Pane>
-        <NotificationsIcon color="default" size={23} marginRight={16} />
+        <NotificationsIcon color="" size={28} marginRight={16} />
         <Avatar isSolid name="Carrygo Admin" size={30} />
-        <Text
-          position={"relative"}
-          top="-7px"
-          fontSize="20px"
-          left={"20px"}
-          size={500}
+        <Button marginTop={-20} appearance="minimal" marginLeft={15}>
+          Carrygo Admin
+        </Button>
+        <Button
+          iconBefore="log-out"
+          marginTop={-20}
+          marginLeft={15}
+          onClick={() => logout()}
         >
-          Carry Go Admin
-        </Text>
+          log out
+        </Button>
       </Pane>
     </Pane>
   );

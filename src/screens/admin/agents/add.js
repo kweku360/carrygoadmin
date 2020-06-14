@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import { useForm, ErrorMessage } from "react-hook-form";
@@ -13,9 +13,8 @@ import {
   Label,
   toaster,
   Spinner,
+  Combobox,
 } from "evergreen-ui";
-import { navigate } from "@reach/router";
-// import { addProvider } from "../../../data/provider";
 
 const centerForm = css`
   margin-left: 80px;
@@ -23,15 +22,21 @@ const centerForm = css`
   padding: 10px;
 `;
 const AddAgentPage = () => {
-  // const { register, handleSubmit, watch, errors } = useForm();
   const { register, errors, handleSubmit } = useForm({
     validateCriteriaMode: "all",
   });
   const [loader, setLoader] = useState(false);
+  const [service, setService] = useState("");
   const onSubmit = (data) => {
-    // perform Save operation
-    setLoader(true);
-    saveAgent(data);
+    if (service == "") {
+      toaster.danger("please choose an agent category");
+    } else {
+      data["service"] = service;
+      //console.log(data);
+      // perform Save operation
+      setLoader(true);
+      saveAgent(data);
+    }
   };
 
   const saveAgent = async (data) => {
@@ -69,13 +74,12 @@ const AddAgentPage = () => {
       </ErrorMessage>
     );
   };
-
   return (
     <Pane
       css={centerForm}
       elevation={1}
       float="left"
-      margin={24}
+      margin={26}
       display="flex"
       flexDirection="column"
     >
@@ -87,6 +91,27 @@ const AddAgentPage = () => {
       ) : (
         <Pane width="50%">
           <form onSubmit={handleSubmit(onSubmit)}>
+            <Text fontWeight="bold">Agent Category</Text>
+            <Combobox
+              items={[
+                "Ranger",
+                "Rentals",
+                "Truck",
+                "Biker",
+                "Towing",
+                "Moving",
+                "Hearse",
+                "Waste Management",
+              ]}
+              onChange={(selected) => setService(selected)}
+              placeholder="Agent category"
+              autocompleteProps={{
+                // Used for the title in the autocomplete.
+                title: "Select One",
+              }}
+            />
+            <br />
+
             {showError("fullname")}
             <TextInputField
               label="Full Name"
@@ -135,7 +160,7 @@ const AddAgentPage = () => {
               })}
             />
             <Pane clearfix>
-              <Pane width="48%" marginRight={14} float="left">
+              <Pane width="45%" marginRight={27} float="left">
                 {showError("nationalid")}
                 <TextInputField
                   name="nationalid"
@@ -159,7 +184,7 @@ const AddAgentPage = () => {
               </Pane>
             </Pane>
             <Pane clearfix>
-              <Pane width="48%" marginRight={14} float="left">
+              <Pane width="45%" marginRight={27} float="left">
                 {showError("vehiclebrand")}
                 <TextInputField
                   name="vehiclebrand"
@@ -195,7 +220,7 @@ const AddAgentPage = () => {
               })}
             />
             <Pane clearfix>
-              <Pane width="48%" marginRight={14} float="left">
+              <Pane width="45%" marginRight={27} float="left">
                 {showError("agentunion")}
                 <TextInputField
                   name="agentunion"
@@ -251,5 +276,5 @@ const AddAgentPage = () => {
   );
 };
 
-const AddAgent = LayoutMaster(AddAgentPage);
+const AddAgent = LayoutMaster(AddAgentPage, { title: "Add Agent" });
 export default AddAgent;

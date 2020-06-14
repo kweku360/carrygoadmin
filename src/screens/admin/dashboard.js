@@ -4,8 +4,8 @@ import { css, jsx } from "@emotion/core";
 import LayoutMaster from "../../components/layout/master";
 
 const DashboardPage = () => {
-  return <h1>Hello world</h1>;
+  return;
 };
 
-const Dashboard = LayoutMaster(DashboardPage);
+const Dashboard = LayoutMaster(DashboardPage, { title: "Dashboard" });
 export default Dashboard;

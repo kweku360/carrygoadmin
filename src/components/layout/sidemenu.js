@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Menu, Heading } from "evergreen-ui";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import { navigate } from "@reach/router";
 
 const leftBox = css`
   width: 15%;
@@ -28,12 +29,33 @@ const Sidemenu = () => {
       name: "All Requests",
       active: false,
       icon: "circle-arrow-right",
+      link: "/request/list",
+    },
+    {
+      id: 2,
+      parent: 2,
+      name: "Manage Agents",
+      active: false,
+      icon: "application",
+      link: "/agent/list",
+    },
+    {
+      id: 3,
+      parent: 2,
+      name: "Add Agent",
+      active: false,
+      icon: "plus",
+      link: "/agent/add",
     },
   ];
   let menuGroup = [
     {
       id: 1,
       name: "Requests",
+    },
+    {
+      id: 2,
+      name: "Agents",
     },
   ];
 
@@ -80,7 +102,9 @@ const Sidemenu = () => {
                       <Menu.Item
                         key={item.id}
                         css={menuItem}
-                        onSelect={() => {}}
+                        onSelect={async () => {
+                          await navigate(item.link);
+                        }}
                         icon={item.icon}
                       >
                         {item.name}

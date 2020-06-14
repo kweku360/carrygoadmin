@@ -96,7 +96,7 @@ export const saveProvider = (data) => {
     vehiclenumber: data.vehiclenumber,
     providerunion: data.agentunion,
     carrygopartner: data.carrygopartner,
-    providerid: "12323",
+    service: data.service,
     primarycontact: data.contact,
     profileimg: "null",
     location: data.location,

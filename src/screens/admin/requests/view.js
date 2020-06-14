@@ -159,5 +159,5 @@ const ViewRequestPage = () => {
   );
 };
 
-const ViewRequest = LayoutMaster(ViewRequestPage);
+const ViewRequest = LayoutMaster(ViewRequestPage, { title: "Request" });
 export default ViewRequest;

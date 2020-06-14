@@ -29,6 +29,7 @@ const centerBox = css`
   /* display: flex; */
 `;
 function withLayout(WrappedComponent, props = {}) {
+  const { title } = props;
   return function LayoutMaster() {
     return (
       <div css={fullscreen}>
@@ -43,7 +44,7 @@ function withLayout(WrappedComponent, props = {}) {
               background-color: #fff;
             `}
           >
-            <Topbar />
+            <Topbar title={title} />
             <WrappedComponent {...props} />
           </div>
         </div>

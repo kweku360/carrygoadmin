@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import logo from "../../assets/img/cgo.png";
 import { verifyLogin } from "../../data/auth";
 import { navigate } from "@reach/router";
 
 import { toaster } from "evergreen-ui";
+import { useAuth } from "../../../context/authcontext";
 //lets define css
 const centerForm = css`
   margin: 150px auto;
@@ -129,15 +130,16 @@ const Login = () => {
   const { loginStatus, setLogin } = useState("false");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { setAuthToken } = useAuth();
 
   const verify = async () => {
-    const isAuthenticated = await verifyLogin(username, password);
+    const res = await verifyLogin(username, password);
 
-    if (isAuthenticated === false) {
+    if (res.status === "false") {
       toaster.danger("Wrong username / password Combination");
       return;
     } else {
-      // return <Redirect noThrow={true} to="/dashboard" />;
+      setAuthToken(res.message);
       await navigate("/dashboard");
     }
   };

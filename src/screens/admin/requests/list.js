@@ -47,5 +47,5 @@ const AllRequestsPage = () => {
   );
 };
 
-const AllRequests = LayoutMaster(AllRequestsPage);
+const AllRequests = LayoutMaster(AllRequestsPage, { title: "All Requests" });
 export default AllRequests;

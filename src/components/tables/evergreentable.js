@@ -13,7 +13,15 @@ const Evergreentable = ({ data, cols }) => {
 
     return data.filter((data) => {
       // Use the filter from fuzzaldrin-plus to filter by name.
-      const result = filter([data.location], searchQuery);
+      const result = filter(
+        [
+          data.contactperson,
+          data.primarycontact,
+          data.service,
+          data.vehiclenumber,
+        ],
+        searchQuery
+      );
       return result.length === 1;
     });
   };
@@ -26,6 +34,7 @@ const Evergreentable = ({ data, cols }) => {
         <Table.SearchHeaderCell
           onChange={(e) => setSearchQuery(e)}
           value={searchQuery}
+          placeholder="filter by agent name"
         />
         {cols[0].map((colItem, index) => {
           return (
