@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html",
+    "dev": "parcel index.html --out-dir build/",
+    "build": "parcel build index.html --out-dir build/",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "format": "prettier \"src/**/*.{js,html}\" --write",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -37,7 +38,8 @@
     "evergreen-ui": "^4.27.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-hook-form": "^5.7.2"
+    "react-hook-form": "^5.7.2",
+    "express": "~4.16.1"
   },
   "browserslist": [
     "last 2 Chrome versions"
