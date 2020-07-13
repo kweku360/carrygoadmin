@@ -1,9 +1,11 @@
+import { serverUrl } from "../utils/server";
 export const verifyLogin = (username, password) => {
   const body = JSON.stringify({
     username: username,
     password: password,
   });
-  const p = fetch("http://localhost:3000/api/login", {
+  // console.log(serverUrl());
+  const p = fetch(`${serverUrl()}/api/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: body,

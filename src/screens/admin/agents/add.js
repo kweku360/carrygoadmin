@@ -95,7 +95,7 @@ const AddAgentPage = () => {
             <Combobox
               items={[
                 "Ranger",
-                "Rentals",
+                "Rental",
                 "Truck",
                 "Biker",
                 "Towing",

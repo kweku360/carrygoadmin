@@ -47,6 +47,22 @@ const Sidemenu = () => {
       icon: "plus",
       link: "/agent/add",
     },
+    {
+      id: 4,
+      parent: 3,
+      name: "Add Pricing",
+      active: false,
+      icon: "plus",
+      link: "/pricing/add",
+    },
+    {
+      id: 5,
+      parent: 3,
+      name: "Manage Pricing",
+      active: false,
+      icon: "application",
+      link: "/pricing/add",
+    },
   ];
   let menuGroup = [
     {
@@ -56,6 +72,10 @@ const Sidemenu = () => {
     {
       id: 2,
       name: "Agents",
+    },
+    {
+      id: 3,
+      name: "Pricing Model",
     },
   ];
 

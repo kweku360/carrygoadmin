@@ -7,6 +7,7 @@ import ListAgent from "./screens/admin/agents/list";
 import ViewAgent from "./screens/admin/agents/view";
 import ListRequests from "./screens/admin/requests/list";
 import ViewRequests from "./screens/admin/requests/view";
+import AddPricing from "./screens/admin/pricing/add";
 import { AuthContext } from "../context/authcontext";
 import AuthGuard from "../context/authguard";
 
@@ -30,6 +31,7 @@ const Routes = () => {
         <AuthGuard path="/agent/view/:id" render={() => <ViewAgent />} />
         <AuthGuard path="/request/list" render={() => <ListRequests />} />
         <AuthGuard path="/request/view/:id" render={() => <ViewRequests />} />
+        <AuthGuard path="/pricing/add" render={() => <AddPricing />} />
       </Router>
     </AuthContext.Provider>
   );

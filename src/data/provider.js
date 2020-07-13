@@ -1,8 +1,9 @@
+import { serverUrl } from "../utils/server";
 export const searchProvider = (searchString) => {
   const body = JSON.stringify({
     search: searchString,
   });
-  const p = fetch("http://localhost:3000/api/serviceproviders/search", {
+  const p = fetch(`${serverUrl()}/api/serviceproviders/search`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: body,
@@ -22,7 +23,7 @@ export const searchProvider = (searchString) => {
 };
 
 export const allProviders = () => {
-  const p = fetch("http://localhost:3000/api/serviceproviders", {
+  const p = fetch(`${serverUrl()}/api/serviceproviders`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -42,7 +43,7 @@ export const allProviders = () => {
 };
 
 export const getProvider = (uid) => {
-  const p = fetch(`http://localhost:3000/api/serviceprovider/${uid}`, {
+  const p = fetch(`${serverUrl()}/api/serviceprovider/${uid}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -67,7 +68,7 @@ export const updateProvider = (uid, field, value) => {
     field: field,
     value: value,
   });
-  const p = fetch("http://localhost:3000/api/serviceprovider/update", {
+  const p = fetch(`${serverUrl()}/api/serviceprovider/update`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: body,
@@ -105,7 +106,7 @@ export const saveProvider = (data) => {
     contactperson: data.fullname,
     image: "null",
   });
-  const p = fetch("http://localhost:3000/api/serviceprovider/create", {
+  const p = fetch(`${serverUrl()}/api/serviceprovider/create`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: body,

@@ -1,5 +1,7 @@
+import { serverUrl } from "../utils/server";
+
 export const allRequests = (type) => {
-  const p = fetch("http://localhost:3000/api/requests/" + type, {
+  const p = fetch(`${serverUrl()}/api/requests/${type}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -19,7 +21,7 @@ export const allRequests = (type) => {
 };
 
 export const getRequest = (uid) => {
-  const p = fetch(`http://localhost:3000/api/request/${uid}`, {
+  const p = fetch(`${serverUrl()}/api/request/${uid}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
