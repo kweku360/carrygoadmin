@@ -12,8 +12,6 @@ import {
   Textarea,
   Label,
   toaster,
-  Spinner,
-  Combobox,
 } from "evergreen-ui";
 
 const centerForm = css`
@@ -21,6 +19,19 @@ const centerForm = css`
   width: 90%;
   padding: 10px;
 `;
+
+const selectCustom = css`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 4-px;
+  padding: 10px 38px 10px 16px;
+  background-size: 10px;
+  transition: border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+`;
+
 const AddAgentPage = () => {
   const { register, errors, handleSubmit } = useForm({
     validateCriteriaMode: "all",
@@ -85,31 +96,29 @@ const AddAgentPage = () => {
     >
       {loader ? (
         <Pane>
-          <Spinner marginX="auto" marginY={120} />
+          {/* <Spinner marginX="auto" marginY={120} /> */}
           <Text size={500}>Saving Data ...</Text>
         </Pane>
       ) : (
         <Pane width="50%">
           <form onSubmit={handleSubmit(onSubmit)}>
             <Text fontWeight="bold">Agent Category</Text>
-            <Combobox
-              items={[
-                "Ranger",
-                "Rental",
-                "Truck",
-                "Biker",
-                "Towing",
-                "Moving",
-                "Hearse",
-                "Waste Management",
-              ]}
-              onChange={(selected) => setService(selected)}
-              placeholder="Agent category"
-              autocompleteProps={{
-                // Used for the title in the autocomplete.
-                title: "Select One",
-              }}
-            />
+            <br />
+            <select
+              css={selectCustom}
+              onBlur={(event) => setService(event.target.value)}
+            >
+              <option value="">Choose Agent</option>
+              <option value="Ranger">Ranger</option>
+              <option value="Rental">Rental</option>
+              <option value="Truck">Truck</option>
+              <option value="Biker">Biker</option>
+              <option value="Towing">Towing</option>
+              <option value="Moving">Moving</option>
+              <option value="Hearse">Hearse</option>
+              <option value="Waste Management">Waste Management</option>
+            </select>
+            <br />
             <br />
 
             {showError("fullname")}
@@ -256,7 +265,7 @@ const AddAgentPage = () => {
                 }}
                 marginRight={100}
                 height={40}
-                iconBefore="arrow-left"
+                // iconBefore="arrow-left"
               >
                 Cancel
               </Button>
@@ -264,7 +273,7 @@ const AddAgentPage = () => {
                 float="right"
                 height={40}
                 appearance="primary"
-                iconAfter="arrow-right"
+                // iconAfter="arrow-right"
               >
                 Save
               </Button>

@@ -151,7 +151,6 @@ const ViewAgentPage = () => {
             <Button
               marginBottom={16}
               appearance="minimal"
-              iconBefore="edit"
               onClick={() => {
                 setField(
                   "contactperson",
@@ -161,7 +160,9 @@ const ViewAgentPage = () => {
                 );
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <span css={mediumText}>Agent</span>
@@ -189,7 +190,9 @@ const ViewAgentPage = () => {
                 );
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
         </Pane>
       </Pane>
@@ -250,7 +253,9 @@ const ViewAgentPage = () => {
                 setField("email", "email", data.email, agentUid);
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <Text size={500}>location : </Text>
@@ -263,7 +268,9 @@ const ViewAgentPage = () => {
                 setField("location", "Location", data.location, agentUid);
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <Text size={500}>Drivers Id : </Text>
@@ -276,7 +283,9 @@ const ViewAgentPage = () => {
                 setField("driversid", "Drivers Id", data.driversid, agentUid);
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <Text size={500}>Vehicle Brand : </Text>
@@ -294,7 +303,9 @@ const ViewAgentPage = () => {
                 );
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <Text size={500}>Vehicle Number : </Text>
@@ -312,7 +323,9 @@ const ViewAgentPage = () => {
                 );
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <Text size={500}>National ID : </Text>
@@ -330,7 +343,9 @@ const ViewAgentPage = () => {
                 );
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <Text size={500}>Notes : </Text>
@@ -343,7 +358,9 @@ const ViewAgentPage = () => {
                 setField("description", "Notes", data.description, agentUid);
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <Text size={500}>Agent Union : </Text>
@@ -361,7 +378,9 @@ const ViewAgentPage = () => {
                 );
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <Text size={500}>Carry go partner : </Text>
@@ -379,7 +398,9 @@ const ViewAgentPage = () => {
                 );
                 return setShowEdit(true);
               }}
-            />
+            >
+              edit
+            </Button>
           </Pane>
           <Pane>
             <Text size={500}>Registration Date : </Text>

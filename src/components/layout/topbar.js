@@ -1,7 +1,7 @@
 import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import { Pane, Heading, NotificationsIcon, Avatar, Button } from "evergreen-ui";
+import { Pane, Heading, Avatar, Button } from "evergreen-ui";
 import { useAuth } from "../../../context/authcontext";
 
 const Topbar = ({ title }) => {
@@ -21,7 +21,7 @@ const Topbar = ({ title }) => {
         <Heading size={700}>{title || ""}</Heading>
       </Pane>
       <Pane>
-        <NotificationsIcon color="" size={28} marginRight={16} />
+        {/* <NotificationsIcon color="" size={28} marginRight={16} /> */}
         <Avatar isSolid name="Carrygo Admin" size={30} />
         <Button marginTop={-20} appearance="minimal" marginLeft={15}>
           Carrygo Admin
