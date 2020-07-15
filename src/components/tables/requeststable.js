@@ -3,6 +3,7 @@ import { filter } from "fuzzaldrin-plus";
 import { Table, IconButton } from "evergreen-ui";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import { navigate } from "@reach/router";
 
 const RequestsTable = ({ data, cols }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -72,8 +73,10 @@ const RequestsTable = ({ data, cols }) => {
                 marginRight={8}
                 appearance="minimal"
                 icon="more"
-                is="a"
-                href={`/request/view/${dataitem.uid}`}
+                // is="a"
+                onClick={async () => {
+                  await navigate(`/request/view/${dataitem.uid}`);
+                }}
               />
             </Table.TextCell>
           </Table.Row>

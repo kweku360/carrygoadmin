@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html --out-dir build/",
+    "dev": "parcel index.html --out-dir dist/",
     "build": "parcel build index.html --out-dir build/",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "format": "prettier \"src/**/*.{js,html}\" --write",
