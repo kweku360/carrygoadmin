@@ -15,6 +15,7 @@ const menuItem = css`
   /* background-color: white; */
   border-radius: 25px 0px 0px 25px;
   color: #fff;
+  cursor: pointer;
   svg {
     fill: #ffb200 !important;
   }
@@ -23,6 +24,14 @@ const menuItem = css`
 const Sidemenu = () => {
   const [activeMenuItem, setActiveMenuItem] = useState("active");
   let menuList = [
+    {
+      id: 10,
+      parent: 4,
+      name: "Dashboard",
+      active: false,
+      icon: "",
+      link: "/dashboard",
+    },
     {
       id: 1,
       parent: 1,
@@ -65,6 +74,10 @@ const Sidemenu = () => {
     },
   ];
   let menuGroup = [
+    {
+      id: 4,
+      name: "",
+    },
     {
       id: 1,
       name: "Requests",

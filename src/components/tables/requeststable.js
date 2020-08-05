@@ -4,6 +4,7 @@ import { Table, IconButton } from "evergreen-ui";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import { navigate } from "@reach/router";
+import { getDateTime } from "./../../utils/dates";
 
 const RequestsTable = ({ data, cols }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -50,7 +51,7 @@ const RequestsTable = ({ data, cols }) => {
             // onSelect={() => alert("name")}
           >
             <Table.TextCell textProps={{ align: "center" }}>
-              {dataitem.id}
+              {getDateTime(dataitem.created_at)}
             </Table.TextCell>
             <Table.TextCell
               css={css`
@@ -64,7 +65,7 @@ const RequestsTable = ({ data, cols }) => {
             <Table.TextCell>{dataitem.client.name}</Table.TextCell>
             <Table.TextCell>{dataitem.client.contact}</Table.TextCell>
             <Table.TextCell>{dataitem.totalprice}</Table.TextCell>
-            <Table.TextCell>{dataitem.status}</Table.TextCell>
+            <Table.TextCell></Table.TextCell>
             <Table.TextCell>
               <IconButton
                 float="right"

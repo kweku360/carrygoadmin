@@ -52,19 +52,9 @@ const PricingTable = ({ data, cols }) => {
             <Table.TextCell textProps={{ align: "center" }}>
               {dataitem.id}
             </Table.TextCell>
-            <Table.TextCell
-              css={css`
-                text-align: center;
-              `}
-              textProps={{ textAlign: "center" }}
-            >
-              {dataitem.provider.contactperson}
-            </Table.TextCell>
-            <Table.TextCell>{dataitem.provider.primarycontact}</Table.TextCell>
-            <Table.TextCell>{dataitem.client.name}</Table.TextCell>
-            <Table.TextCell>{dataitem.client.contact}</Table.TextCell>
-            <Table.TextCell>{dataitem.totalprice}</Table.TextCell>
-            <Table.TextCell>{dataitem.status}</Table.TextCell>
+            <Table.TextCell>{dataitem.servicename}</Table.TextCell>
+            <Table.TextCell>{dataitem.rateperkm}</Table.TextCell>
+            <Table.TextCell>{dataitem.fixedprice}</Table.TextCell>
             <Table.TextCell>
               <IconButton
                 float="right"

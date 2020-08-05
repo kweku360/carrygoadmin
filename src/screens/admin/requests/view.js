@@ -50,7 +50,7 @@ const ViewRequestPage = () => {
           display="flex"
           float="left"
         >
-          <Menu
+          {/* <Menu
             css={css`
               width: 300px;
             `}
@@ -66,7 +66,7 @@ const ViewRequestPage = () => {
               // onChange={}
             />
             <Menu.Divider />
-          </Menu>
+          </Menu> */}
         </Pane>
         {dataProvider ? (
           <Pane>
@@ -103,11 +103,15 @@ const ViewRequestPage = () => {
                 </Pane>
                 <Pane margin={10}>
                   <Text size={500}>Transaction Id</Text>
-                  <Heading css={smallText}></Heading>
+                  <Heading css={smallText}>
+                    {data.transaction.uid || ""}
+                  </Heading>
                 </Pane>
                 <Pane margin={10}>
                   <Text size={500}>Payment Invoice Number</Text>
-                  <Heading size={500} css={smallText}></Heading>
+                  <Heading size={500} css={smallText}>
+                    {data.transaction.ordercode || ""}
+                  </Heading>
                 </Pane>
               </Pane>
               <Pane width="33%" float="left">

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { css, jsx } from "@emotion/core";
 import LayoutMaster from "../../../components/layout/master";
 import PricingTable from "../../../components/tables/pricingtable";
-import { allProviders } from "../../../data/provider";
+import { allPricing } from "../../../data/pricing";
 import { Pane } from "evergreen-ui";
 
 const centerForm = css`
@@ -27,7 +27,8 @@ const ListAgentPage = () => {
   }, []);
 
   const loadData = async () => {
-    const res = await allProviders();
+    const res = await allPricing();
+    console.log("pricing");
     setData(res);
   };
   return (

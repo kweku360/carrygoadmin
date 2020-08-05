@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import React, { useState, useEffect, useContext } from "react";
-import logo from "../../assets/img/cgo.png";
+// import logo from "../../assets/img/cgo.png";
 import { verifyLogin } from "../../data/auth";
 import { navigate } from "@reach/router";
 
@@ -149,7 +149,7 @@ const Login = () => {
   return (
     <div css={fullscreen}>
       <div css={centerForm}>
-        <img
+        {/* <img
           css={css`
             margin-left: 150px;
           `}
@@ -157,7 +157,7 @@ const Login = () => {
           alt="logo"
           height="100"
           width="100"
-        />
+        /> */}
         <br />
         <div
           css={css`
