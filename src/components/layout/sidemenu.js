@@ -61,7 +61,7 @@ const Sidemenu = () => {
       name: "Manage Pricing",
       active: false,
       icon: "application",
-      link: "/pricing/add",
+      link: "/pricing/list",
     },
   ];
   let menuGroup = [
