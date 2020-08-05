@@ -4,7 +4,7 @@ import { css, jsx } from "@emotion/core";
 import LayoutMaster from "../../../components/layout/master";
 import RequestsTable from "../../../components/tables/requeststable";
 import { allRequests } from "../../../data/requests";
-import { Pane } from "evergreen-ui";
+import { Pane, Spinner, Text } from "evergreen-ui";
 
 const centerForm = css`
   margin-left: 30px;
@@ -42,7 +42,14 @@ const AllRequestsPage = () => {
       display="flex"
       flexDirection="column"
     >
-      <RequestsTable cols={[cols]} data={data} />
+      {data.length == 0 ? (
+        <Pane>
+          <Spinner marginX="auto" marginY={120} />
+          <Text size={500}>loading</Text>
+        </Pane>
+      ) : (
+        <RequestsTable cols={[cols]} data={data} />
+      )}
     </Pane>
   );
 };

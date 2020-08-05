@@ -8,6 +8,7 @@ import { AgentPicture } from "../../../components/agent/agentpicture";
 import VerifyAgent from "../../../components/agent/verifyagent";
 import { Pane, Text, Button, Menu, Badge } from "evergreen-ui";
 import DisableAgent from "../../../components/agent/disableagent";
+import { serverUrl } from "./../../../utils/server";
 
 const centerForm = css`
   margin-left: 30px;
@@ -99,7 +100,7 @@ const ViewAgentPage = () => {
                 width="220px"
                 height="180px"
                 alt=""
-                src={`http://localhost:3000/agentimages/${data.profileimg}.png`}
+                src={`${serverUrl()}/agentimages/${data.profileimg}.png`}
               />
               <Button
                 marginBottom={16}

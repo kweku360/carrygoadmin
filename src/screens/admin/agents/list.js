@@ -4,7 +4,7 @@ import { css, jsx } from "@emotion/core";
 import LayoutMaster from "../../../components/layout/master";
 import Evergreentable from "../../../components/tables/evergreentable";
 import { allProviders } from "../../../data/provider";
-import { Pane } from "evergreen-ui";
+import { Pane, Spinner, Text } from "evergreen-ui";
 
 const centerForm = css`
   margin-left: 30px;
@@ -41,7 +41,14 @@ const ListAgentPage = () => {
       display="flex"
       flexDirection="column"
     >
-      <Evergreentable cols={[cols]} data={data} />
+      {data.length == 0 ? (
+        <Pane>
+          <Spinner marginX="auto" marginY={120} />
+          <Text size={500}>loading</Text>
+        </Pane>
+      ) : (
+        <Evergreentable cols={[cols]} data={data} />
+      )}
     </Pane>
   );
 };
